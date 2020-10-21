@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import EstablishmentService from '../../services/establishment_service';
 import noPhoto from '../../images/no_photo.jpg';
+import Ratings from '../Ratings';
+
 import { LeftBar, Title, Paragraph, Image } from './styles';
 
 const Establisment = (props) => {
@@ -48,6 +50,7 @@ const Establisment = (props) => {
         'Não há cadastros de horário de funcionamento.'
       )}
       <hr />​<Paragraph>{establishment.formatted_address}</Paragraph>
+      <Ratings place={props.place} />
     </LeftBar>
   );
 };
