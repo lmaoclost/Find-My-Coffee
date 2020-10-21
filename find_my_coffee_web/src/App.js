@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-import EstabilishmentService from './services/google_list_of_stablishments';
+import EstabilishmentService from './services/google_list_of_establishments';
 
 import coffeePin from './images/coffee-pin.png';
 import myLocation from './images/my-location-pin.png';
