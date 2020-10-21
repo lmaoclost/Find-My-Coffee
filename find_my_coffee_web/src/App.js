@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 import Establishment from './components/Establisment';
+import NearestCoffees from './components/NearestCoffees';
 import EstabilishmentService from './services/establishment_service';
 
 import coffeePin from './images/coffee-pin.png';
@@ -68,6 +69,9 @@ function App() {
             animation="4"
             position={{ lat: latitude, lng: longitude }}
           />
+          {latitude !== 0 && longitude !== 0 && (
+            <NearestCoffees latitude={latitude} longitude={longitude} />
+          )}
         </GoogleMap>
       </LoadScript>
     </>
