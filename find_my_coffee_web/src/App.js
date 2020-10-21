@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-import EstabilishmentService from './services/google_list_of_establishments';
+import Establishment from './components/Establisment';
+import EstabilishmentService from './services/establishment_service';
 
 import coffeePin from './images/coffee-pin.png';
 import myLocation from './images/my-location-pin.png';
@@ -10,6 +11,7 @@ function App() {
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
   const [locations, setLocations] = useState([]);
+  const [selected, setSelected] = useState({});
 
   const { REACT_APP_GOOGLE_API_KEY } = process.env;
 
@@ -54,9 +56,11 @@ function App() {
                   lat: item.geometry.location.lat,
                   lng: item.geometry.location.lng,
                 }}
+                onClick={() => setSelected(item)}
               />
             );
           })}
+          {selected.place_id && <Establishment place={selected} />}
           <Marker
             key="my_location"
             icon={myLocation}
